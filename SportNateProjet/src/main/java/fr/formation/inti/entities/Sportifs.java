@@ -1,5 +1,5 @@
 package fr.formation.inti.entities;
-// Generated 5 sept. 2019 16:09:45 by Hibernate Tools 4.3.5.Final
+// Generated 6 sept. 2019 09:54:53 by Hibernate Tools 4.3.5.Final
 
 import java.util.HashSet;
 import java.util.Set;
