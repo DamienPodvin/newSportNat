@@ -19,16 +19,11 @@ public class ActiviteRecord implements java.io.Serializable {
 	private String timeofActivity;
 	private Integer nbrePers;
 	private Integer nbreKm;
-	private int commentaireCommentaireId;
 	private String description;
 
 	public ActiviteRecord() {
 	}
 
-	public ActiviteRecord(int activiteId, int commentaireCommentaireId) {
-		this.activiteId = activiteId;
-		this.commentaireCommentaireId = commentaireCommentaireId;
-	}
 
 	public ActiviteRecord(int activiteId, String nameActivity, String lieu, String timeofActivity, Integer nbrePers,
 			Integer nbreKm, int commentaireCommentaireId, String description) {
@@ -38,7 +33,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.timeofActivity = timeofActivity;
 		this.nbrePers = nbrePers;
 		this.nbreKm = nbreKm;
-		this.commentaireCommentaireId = commentaireCommentaireId;
+
 		this.description = description;
 	}
 
@@ -53,7 +48,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.activiteId = activiteId;
 	}
 
-	@Column(name = "NameActivity", length = 50)
+	@Column(name = "nameActivity", length = 50)
 	public String getNameActivity() {
 		return this.nameActivity;
 	}
@@ -98,14 +93,6 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.nbreKm = nbreKm;
 	}
 
-	@Column(name = "commentaire_Commentaire_id", nullable = false)
-	public int getCommentaireCommentaireId() {
-		return this.commentaireCommentaireId;
-	}
-
-	public void setCommentaireCommentaireId(int commentaireCommentaireId) {
-		this.commentaireCommentaireId = commentaireCommentaireId;
-	}
 
 	@Column(name = "Description", length = 500)
 	public String getDescription() {

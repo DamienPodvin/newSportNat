@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -33,13 +33,13 @@
                 <div class="col-md-6 ">
                     <h3>Login </h3>
                     
-                    
+             <form name="f" th:action="@{/j_spring_security_check}" method="post">   
                     	<p class="form-group">
-					<input type="email" class="form-control" required placeholder="Your Mail *">
+					<input name ="pseudo" type="email" class="form-control" required placeholder="Your Mail *">
 						</p>
 
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" required/>
+                            <input  name ="mdp"  type="password" class="form-control" placeholder="Your Password *" value="" required/>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit" value="Login" />
@@ -52,6 +52,7 @@
                         </div>
                     
                 </div>
+                </form>  
       </div>
     </div>
   </header>

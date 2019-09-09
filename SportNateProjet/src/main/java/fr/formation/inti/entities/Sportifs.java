@@ -14,8 +14,6 @@ import javax.persistence.Table;
 public class Sportifs implements java.io.Serializable {
 
 	private int sportifsId;
-	private String email;
-	private String mdp;
 	private String nom;
 	private String prenom;
 	private Integer age;
@@ -28,10 +26,8 @@ public class Sportifs implements java.io.Serializable {
 		this.sportifsId = sportifsId;
 	}
 
-	public Sportifs(int sportifsId, String email, String mdp, String nom, String prenom, Integer age, String titre) {
+	public Sportifs(int sportifsId, String nom, String prenom, Integer age, String titre) {
 		this.sportifsId = sportifsId;
-		this.email = email;
-		this.mdp = mdp;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;
@@ -49,23 +45,9 @@ public class Sportifs implements java.io.Serializable {
 		this.sportifsId = sportifsId;
 	}
 
-	@Column(name = "Email", length = 50)
-	public String getEmail() {
-		return this.email;
-	}
+	
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Column(name = "Mdp", length = 50)
-	public String getMdp() {
-		return this.mdp;
-	}
-
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
+	
 
 	@Column(name = "Nom", length = 30)
 	public String getNom() {
