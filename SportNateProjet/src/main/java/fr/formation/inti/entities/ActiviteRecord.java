@@ -1,18 +1,9 @@
 package fr.formation.inti.entities;
-// Generated 6 sept. 2019 09:54:53 by Hibernate Tools 4.3.5.Final
+// Generated 9 sept. 2019 11:09:20 by Hibernate Tools 4.3.5.Final
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,55 +13,44 @@ import javax.persistence.Table;
 @Table(name = "activite_record", catalog = "sportnat")
 public class ActiviteRecord implements java.io.Serializable {
 
-	private Integer activiteId;
-	private Commentaire commentaire;
+	private int activiteId;
 	private String nameActivity;
 	private String lieu;
 	private String timeofActivity;
 	private Integer nbrePers;
 	private Integer nbreKm;
+	private int commentaireCommentaireId;
 	private String description;
-	private Set<Sportifs> sportifses = new HashSet<Sportifs>(0);
 
 	public ActiviteRecord() {
 	}
 
-	public ActiviteRecord(Commentaire commentaire) {
-		this.commentaire = commentaire;
+	public ActiviteRecord(int activiteId, int commentaireCommentaireId) {
+		this.activiteId = activiteId;
+		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
-	public ActiviteRecord(Commentaire commentaire, String nameActivity, String lieu, String timeofActivity,
-			Integer nbrePers, Integer nbreKm, String description, Set<Sportifs> sportifses) {
-		this.commentaire = commentaire;
+	public ActiviteRecord(int activiteId, String nameActivity, String lieu, String timeofActivity, Integer nbrePers,
+			Integer nbreKm, int commentaireCommentaireId, String description) {
+		this.activiteId = activiteId;
 		this.nameActivity = nameActivity;
 		this.lieu = lieu;
 		this.timeofActivity = timeofActivity;
 		this.nbrePers = nbrePers;
 		this.nbreKm = nbreKm;
+		this.commentaireCommentaireId = commentaireCommentaireId;
 		this.description = description;
-		this.sportifses = sportifses;
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "Activite_id", unique = true, nullable = false)
-	public Integer getActiviteId() {
+	public int getActiviteId() {
 		return this.activiteId;
 	}
 
-	public void setActiviteId(Integer activiteId) {
+	public void setActiviteId(int activiteId) {
 		this.activiteId = activiteId;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "commentaire_Commentaire_id", nullable = false)
-	public Commentaire getCommentaire() {
-		return this.commentaire;
-	}
-
-	public void setCommentaire(Commentaire commentaire) {
-		this.commentaire = commentaire;
 	}
 
 	@Column(name = "NameActivity", length = 50)
@@ -118,6 +98,15 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.nbreKm = nbreKm;
 	}
 
+	@Column(name = "commentaire_Commentaire_id", nullable = false)
+	public int getCommentaireCommentaireId() {
+		return this.commentaireCommentaireId;
+	}
+
+	public void setCommentaireCommentaireId(int commentaireCommentaireId) {
+		this.commentaireCommentaireId = commentaireCommentaireId;
+	}
+
 	@Column(name = "Description", length = 500)
 	public String getDescription() {
 		return this.description;
@@ -125,18 +114,6 @@ public class ActiviteRecord implements java.io.Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "activite_record_has_sportifs", catalog = "sportnat", joinColumns = {
-			@JoinColumn(name = "activite_record_Activite_id", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "sportifs_Login_id", nullable = false, updatable = false) })
-	public Set<Sportifs> getSportifses() {
-		return this.sportifses;
-	}
-
-	public void setSportifses(Set<Sportifs> sportifses) {
-		this.sportifses = sportifses;
 	}
 
 }

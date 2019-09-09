@@ -1,16 +1,10 @@
 package fr.formation.inti.entities;
-// Generated 6 sept. 2019 09:54:53 by Hibernate Tools 4.3.5.Final
+// Generated 9 sept. 2019 11:09:20 by Hibernate Tools 4.3.5.Final
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,35 +17,34 @@ import javax.persistence.TemporalType;
 public class Commentaire implements java.io.Serializable {
 
 	private int commentaireId;
-	private Sportifs sportifs;
-	private String expediteur;
 	private String contenue;
 	private Integer note;
 	private Date dateRecord;
-	private Set<ActiviteRecord> activiteRecords = new HashSet<ActiviteRecord>(0);
+	private int activiteRecordActiviteId;
+	private int sportifsSportifsId;
 
 	public Commentaire() {
 	}
 
-	public Commentaire(int commentaireId, Sportifs sportifs) {
+	public Commentaire(int commentaireId, int activiteRecordActiviteId, int sportifsSportifsId) {
 		this.commentaireId = commentaireId;
-		this.sportifs = sportifs;
+		this.activiteRecordActiviteId = activiteRecordActiviteId;
+		this.sportifsSportifsId = sportifsSportifsId;
 	}
 
-	public Commentaire(int commentaireId, Sportifs sportifs, String expediteur, String contenue, Integer note,
-			Date dateRecord, Set<ActiviteRecord> activiteRecords) {
+	public Commentaire(int commentaireId, String contenue, Integer note, Date dateRecord, int activiteRecordActiviteId,
+			int sportifsSportifsId) {
 		this.commentaireId = commentaireId;
-		this.sportifs = sportifs;
-		this.expediteur = expediteur;
 		this.contenue = contenue;
 		this.note = note;
 		this.dateRecord = dateRecord;
-		this.activiteRecords = activiteRecords;
+		this.activiteRecordActiviteId = activiteRecordActiviteId;
+		this.sportifsSportifsId = sportifsSportifsId;
 	}
 
 	@Id
 
-	@Column(name = "Commentaire_id", unique = true, nullable = false)
+	@Column(name = "commentaire_id", unique = true, nullable = false)
 	public int getCommentaireId() {
 		return this.commentaireId;
 	}
@@ -60,26 +53,7 @@ public class Commentaire implements java.io.Serializable {
 		this.commentaireId = commentaireId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "sportifs_Login_id", nullable = false)
-	public Sportifs getSportifs() {
-		return this.sportifs;
-	}
-
-	public void setSportifs(Sportifs sportifs) {
-		this.sportifs = sportifs;
-	}
-
-	@Column(name = "Expediteur", length = 50)
-	public String getExpediteur() {
-		return this.expediteur;
-	}
-
-	public void setExpediteur(String expediteur) {
-		this.expediteur = expediteur;
-	}
-
-	@Column(name = "Contenue", length = 500)
+	@Column(name = "contenue", length = 500)
 	public String getContenue() {
 		return this.contenue;
 	}
@@ -88,7 +62,7 @@ public class Commentaire implements java.io.Serializable {
 		this.contenue = contenue;
 	}
 
-	@Column(name = "Note")
+	@Column(name = "note")
 	public Integer getNote() {
 		return this.note;
 	}
@@ -98,7 +72,7 @@ public class Commentaire implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Date_record", length = 10)
+	@Column(name = "date_record", length = 10)
 	public Date getDateRecord() {
 		return this.dateRecord;
 	}
@@ -107,13 +81,22 @@ public class Commentaire implements java.io.Serializable {
 		this.dateRecord = dateRecord;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "commentaire")
-	public Set<ActiviteRecord> getActiviteRecords() {
-		return this.activiteRecords;
+	@Column(name = "activite_record_Activite_id", nullable = false)
+	public int getActiviteRecordActiviteId() {
+		return this.activiteRecordActiviteId;
 	}
 
-	public void setActiviteRecords(Set<ActiviteRecord> activiteRecords) {
-		this.activiteRecords = activiteRecords;
+	public void setActiviteRecordActiviteId(int activiteRecordActiviteId) {
+		this.activiteRecordActiviteId = activiteRecordActiviteId;
+	}
+
+	@Column(name = "sportifs_sportifs_id", nullable = false)
+	public int getSportifsSportifsId() {
+		return this.sportifsSportifsId;
+	}
+
+	public void setSportifsSportifsId(int sportifsSportifsId) {
+		this.sportifsSportifsId = sportifsSportifsId;
 	}
 
 }
