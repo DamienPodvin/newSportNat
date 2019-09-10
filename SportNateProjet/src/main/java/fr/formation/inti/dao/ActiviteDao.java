@@ -9,7 +9,7 @@ import fr.formation.inti.entities.Sportifs;
 
 public interface ActiviteDao  extends JpaRepository<ActiviteRecord, Integer> {
 	
-	public List<ActiviteRecord> findBySportifs (Sportifs sportif);
+
 
 }
 

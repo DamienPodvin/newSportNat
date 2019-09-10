@@ -37,4 +37,11 @@ public class IndexController {
         model.addAttribute("isAdmin", isAdmin);
         return "view/login/index";
     }
+	
+	@GetMapping("/inscription")
+    public String inscription(Model model) {
+		return "view/inscription";
+		
+	}
+	
 }
