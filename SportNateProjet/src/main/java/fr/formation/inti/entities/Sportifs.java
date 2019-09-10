@@ -1,18 +1,11 @@
 package fr.formation.inti.entities;
-// Generated 5 sept. 2019 16:09:45 by Hibernate Tools 4.3.5.Final
+// Generated 10 sept. 2019 09:21:11 by Hibernate Tools 4.3.5.Final
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,61 +15,38 @@ import javax.persistence.Table;
 @Table(name = "sportifs", catalog = "sportnat")
 public class Sportifs implements java.io.Serializable {
 
-	private Integer loginId;
-	private String email;
-	private String mdp;
+	private Integer sportifsId;
 	private String nom;
 	private String prenom;
 	private Integer age;
 	private String titre;
-	private Set<Commentaire> commentaires = new HashSet<Commentaire>(0);
-	private Set<Login> logins = new HashSet<Login>(0);
-	private Set<ActiviteRecord> activiteRecords = new HashSet<ActiviteRecord>(0);
+	private long appUserUserId;
 
 	public Sportifs() {
 	}
 
-	public Sportifs(String email, String mdp, String nom, String prenom, Integer age, String titre,
-			Set<Commentaire> commentaires, Set<Login> logins, Set<ActiviteRecord> activiteRecords) {
-		this.email = email;
-		this.mdp = mdp;
+	public Sportifs(long appUserUserId) {
+		this.appUserUserId = appUserUserId;
+	}
+
+	public Sportifs(String nom, String prenom, Integer age, String titre, long appUserUserId) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;
 		this.titre = titre;
-		this.commentaires = commentaires;
-		this.logins = logins;
-		this.activiteRecords = activiteRecords;
+		this.appUserUserId = appUserUserId;
 	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "Login_id", unique = true, nullable = false)
-	public Integer getLoginId() {
-		return this.loginId;
+	@Column(name = "sportifs_id", unique = true, nullable = false)
+	public Integer getSportifsId() {
+		return this.sportifsId;
 	}
 
-	public void setLoginId(Integer loginId) {
-		this.loginId = loginId;
-	}
-
-	@Column(name = "Email", length = 50)
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Column(name = "Mdp", length = 50)
-	public String getMdp() {
-		return this.mdp;
-	}
-
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
+	public void setSportifsId(Integer sportifsId) {
+		this.sportifsId = sportifsId;
 	}
 
 	@Column(name = "Nom", length = 30)
@@ -115,34 +85,13 @@ public class Sportifs implements java.io.Serializable {
 		this.titre = titre;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sportifs")
-	public Set<Commentaire> getCommentaires() {
-		return this.commentaires;
+	@Column(name = "app_user_USER_ID", nullable = false)
+	public long getAppUserUserId() {
+		return this.appUserUserId;
 	}
 
-	public void setCommentaires(Set<Commentaire> commentaires) {
-		this.commentaires = commentaires;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sportifs")
-	public Set<Login> getLogins() {
-		return this.logins;
-	}
-
-	public void setLogins(Set<Login> logins) {
-		this.logins = logins;
-	}
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "activite_record_has_sportifs", catalog = "sportnat", joinColumns = {
-			@JoinColumn(name = "sportifs_Login_id", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "activite_record_Activite_id", nullable = false, updatable = false) })
-	public Set<ActiviteRecord> getActiviteRecords() {
-		return this.activiteRecords;
-	}
-
-	public void setActiviteRecords(Set<ActiviteRecord> activiteRecords) {
-		this.activiteRecords = activiteRecords;
+	public void setAppUserUserId(long appUserUserId) {
+		this.appUserUserId = appUserUserId;
 	}
 
 }

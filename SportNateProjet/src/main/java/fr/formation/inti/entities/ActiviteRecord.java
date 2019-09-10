@@ -1,18 +1,11 @@
 package fr.formation.inti.entities;
-// Generated 5 sept. 2019 16:09:45 by Hibernate Tools 4.3.5.Final
+// Generated 10 sept. 2019 09:21:11 by Hibernate Tools 4.3.5.Final
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,32 +16,30 @@ import javax.persistence.Table;
 public class ActiviteRecord implements java.io.Serializable {
 
 	private Integer activiteId;
-	private Commentaire commentaire;
 	private String nameActivity;
 	private String lieu;
 	private String timeofActivity;
 	private Integer nbrePers;
 	private Integer nbreKm;
 	private String description;
-	private Set<Sportifs> sportifses = new HashSet<Sportifs>(0);
+	private int commentaireCommentaireId;
 
 	public ActiviteRecord() {
 	}
 
-	public ActiviteRecord(Commentaire commentaire) {
-		this.commentaire = commentaire;
+	public ActiviteRecord(int commentaireCommentaireId) {
+		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
-	public ActiviteRecord(Commentaire commentaire, String nameActivity, String lieu, String timeofActivity,
-			Integer nbrePers, Integer nbreKm, String description, Set<Sportifs> sportifses) {
-		this.commentaire = commentaire;
+	public ActiviteRecord(String nameActivity, String lieu, String timeofActivity, Integer nbrePers, Integer nbreKm,
+			String description, int commentaireCommentaireId) {
 		this.nameActivity = nameActivity;
 		this.lieu = lieu;
 		this.timeofActivity = timeofActivity;
 		this.nbrePers = nbrePers;
 		this.nbreKm = nbreKm;
 		this.description = description;
-		this.sportifses = sportifses;
+		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
 	@Id
@@ -61,16 +52,6 @@ public class ActiviteRecord implements java.io.Serializable {
 
 	public void setActiviteId(Integer activiteId) {
 		this.activiteId = activiteId;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "commentaire_Commentaire_id", nullable = false)
-	public Commentaire getCommentaire() {
-		return this.commentaire;
-	}
-
-	public void setCommentaire(Commentaire commentaire) {
-		this.commentaire = commentaire;
 	}
 
 	@Column(name = "NameActivity", length = 50)
@@ -127,16 +108,13 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "activite_record_has_sportifs", catalog = "sportnat", joinColumns = {
-			@JoinColumn(name = "activite_record_Activite_id", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "sportifs_Login_id", nullable = false, updatable = false) })
-	public Set<Sportifs> getSportifses() {
-		return this.sportifses;
+	@Column(name = "commentaire_commentaire_id", nullable = false)
+	public int getCommentaireCommentaireId() {
+		return this.commentaireCommentaireId;
 	}
 
-	public void setSportifses(Set<Sportifs> sportifses) {
-		this.sportifses = sportifses;
+	public void setCommentaireCommentaireId(int commentaireCommentaireId) {
+		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
 }
