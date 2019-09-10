@@ -1,8 +1,10 @@
 package fr.formation.inti.entities;
-// Generated 9 sept. 2019 11:09:20 by Hibernate Tools 4.3.5.Final
+// Generated 10 sept. 2019 09:21:11 by Hibernate Tools 4.3.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,42 +15,46 @@ import javax.persistence.Table;
 @Table(name = "activite_record", catalog = "sportnat")
 public class ActiviteRecord implements java.io.Serializable {
 
-	private int activiteId;
+	private Integer activiteId;
 	private String nameActivity;
 	private String lieu;
 	private String timeofActivity;
 	private Integer nbrePers;
 	private Integer nbreKm;
 	private String description;
+	private int commentaireCommentaireId;
 
 	public ActiviteRecord() {
 	}
 
+	public ActiviteRecord(int commentaireCommentaireId) {
+		this.commentaireCommentaireId = commentaireCommentaireId;
+	}
 
-	public ActiviteRecord(int activiteId, String nameActivity, String lieu, String timeofActivity, Integer nbrePers,
-			Integer nbreKm, int commentaireCommentaireId, String description) {
-		this.activiteId = activiteId;
+	public ActiviteRecord(String nameActivity, String lieu, String timeofActivity, Integer nbrePers, Integer nbreKm,
+			String description, int commentaireCommentaireId) {
 		this.nameActivity = nameActivity;
 		this.lieu = lieu;
 		this.timeofActivity = timeofActivity;
 		this.nbrePers = nbrePers;
 		this.nbreKm = nbreKm;
-
 		this.description = description;
+		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "Activite_id", unique = true, nullable = false)
-	public int getActiviteId() {
+	public Integer getActiviteId() {
 		return this.activiteId;
 	}
 
-	public void setActiviteId(int activiteId) {
+	public void setActiviteId(Integer activiteId) {
 		this.activiteId = activiteId;
 	}
 
-	@Column(name = "nameActivity", length = 50)
+	@Column(name = "NameActivity", length = 50)
 	public String getNameActivity() {
 		return this.nameActivity;
 	}
@@ -93,7 +99,6 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.nbreKm = nbreKm;
 	}
 
-
 	@Column(name = "Description", length = 500)
 	public String getDescription() {
 		return this.description;
@@ -101,6 +106,15 @@ public class ActiviteRecord implements java.io.Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Column(name = "commentaire_commentaire_id", nullable = false)
+	public int getCommentaireCommentaireId() {
+		return this.commentaireCommentaireId;
+	}
+
+	public void setCommentaireCommentaireId(int commentaireCommentaireId) {
+		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
 }

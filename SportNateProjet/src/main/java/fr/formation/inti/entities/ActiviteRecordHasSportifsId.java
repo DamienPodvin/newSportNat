@@ -1,6 +1,7 @@
 package fr.formation.inti.entities;
-// Generated 9 sept. 2019 11:09:20 by Hibernate Tools 4.3.5.Final
+// Generated 10 sept. 2019 09:21:11 by Hibernate Tools 4.3.5.Final
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -10,14 +11,39 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ActiviteRecordHasSportifsId implements java.io.Serializable {
 
-	private int activiteRecordActiviteId;
+	private Date dateAjout;
 	private int sportifsSportifsId;
+	private int activiteRecordActiviteId;
 
 	public ActiviteRecordHasSportifsId() {
 	}
 
-	public ActiviteRecordHasSportifsId(int activiteRecordActiviteId, int sportifsSportifsId) {
+	public ActiviteRecordHasSportifsId(int sportifsSportifsId, int activiteRecordActiviteId) {
+		this.sportifsSportifsId = sportifsSportifsId;
 		this.activiteRecordActiviteId = activiteRecordActiviteId;
+	}
+
+	public ActiviteRecordHasSportifsId(Date dateAjout, int sportifsSportifsId, int activiteRecordActiviteId) {
+		this.dateAjout = dateAjout;
+		this.sportifsSportifsId = sportifsSportifsId;
+		this.activiteRecordActiviteId = activiteRecordActiviteId;
+	}
+
+	@Column(name = "date_ajout", length = 10)
+	public Date getDateAjout() {
+		return this.dateAjout;
+	}
+
+	public void setDateAjout(Date dateAjout) {
+		this.dateAjout = dateAjout;
+	}
+
+	@Column(name = "sportifs_sportifs_id", nullable = false)
+	public int getSportifsSportifsId() {
+		return this.sportifsSportifsId;
+	}
+
+	public void setSportifsSportifsId(int sportifsSportifsId) {
 		this.sportifsSportifsId = sportifsSportifsId;
 	}
 
@@ -30,15 +56,6 @@ public class ActiviteRecordHasSportifsId implements java.io.Serializable {
 		this.activiteRecordActiviteId = activiteRecordActiviteId;
 	}
 
-	@Column(name = "sportifs_sportifs_id", nullable = false)
-	public int getSportifsSportifsId() {
-		return this.sportifsSportifsId;
-	}
-
-	public void setSportifsSportifsId(int sportifsSportifsId) {
-		this.sportifsSportifsId = sportifsSportifsId;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -48,15 +65,18 @@ public class ActiviteRecordHasSportifsId implements java.io.Serializable {
 			return false;
 		ActiviteRecordHasSportifsId castOther = (ActiviteRecordHasSportifsId) other;
 
-		return (this.getActiviteRecordActiviteId() == castOther.getActiviteRecordActiviteId())
-				&& (this.getSportifsSportifsId() == castOther.getSportifsSportifsId());
+		return ((this.getDateAjout() == castOther.getDateAjout()) || (this.getDateAjout() != null
+				&& castOther.getDateAjout() != null && this.getDateAjout().equals(castOther.getDateAjout())))
+				&& (this.getSportifsSportifsId() == castOther.getSportifsSportifsId())
+				&& (this.getActiviteRecordActiviteId() == castOther.getActiviteRecordActiviteId());
 	}
 
 	public int hashCode() {
 		int result = 17;
 
-		result = 37 * result + this.getActiviteRecordActiviteId();
+		result = 37 * result + (getDateAjout() == null ? 0 : this.getDateAjout().hashCode());
 		result = 37 * result + this.getSportifsSportifsId();
+		result = 37 * result + this.getActiviteRecordActiviteId();
 		return result;
 	}
 

@@ -1,8 +1,10 @@
 package fr.formation.inti.entities;
-// Generated 9 sept. 2019 11:09:20 by Hibernate Tools 4.3.5.Final
+// Generated 10 sept. 2019 09:21:11 by Hibernate Tools 4.3.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,41 +15,39 @@ import javax.persistence.Table;
 @Table(name = "sportifs", catalog = "sportnat")
 public class Sportifs implements java.io.Serializable {
 
-	private int sportifsId;
+	private Integer sportifsId;
 	private String nom;
 	private String prenom;
 	private Integer age;
 	private String titre;
+	private long appUserUserId;
 
 	public Sportifs() {
 	}
 
-	public Sportifs(int sportifsId) {
-		this.sportifsId = sportifsId;
+	public Sportifs(long appUserUserId) {
+		this.appUserUserId = appUserUserId;
 	}
 
-	public Sportifs(int sportifsId, String nom, String prenom, Integer age, String titre) {
-		this.sportifsId = sportifsId;
+	public Sportifs(String nom, String prenom, Integer age, String titre, long appUserUserId) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;
 		this.titre = titre;
+		this.appUserUserId = appUserUserId;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "sportifs_id", unique = true, nullable = false)
-	public int getSportifsId() {
+	public Integer getSportifsId() {
 		return this.sportifsId;
 	}
 
-	public void setSportifsId(int sportifsId) {
+	public void setSportifsId(Integer sportifsId) {
 		this.sportifsId = sportifsId;
 	}
-
-	
-
-	
 
 	@Column(name = "Nom", length = 30)
 	public String getNom() {
@@ -83,6 +83,15 @@ public class Sportifs implements java.io.Serializable {
 
 	public void setTitre(String titre) {
 		this.titre = titre;
+	}
+
+	@Column(name = "app_user_USER_ID", nullable = false)
+	public long getAppUserUserId() {
+		return this.appUserUserId;
+	}
+
+	public void setAppUserUserId(long appUserUserId) {
+		this.appUserUserId = appUserUserId;
 	}
 
 }

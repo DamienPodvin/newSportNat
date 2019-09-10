@@ -1,5 +1,5 @@
 package fr.formation.inti.entities;
-// Generated 9 sept. 2019 11:09:20 by Hibernate Tools 4.3.5.Final
+// Generated 10 sept. 2019 09:21:11 by Hibernate Tools 4.3.5.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -20,26 +20,26 @@ public class Commentaire implements java.io.Serializable {
 	private String contenue;
 	private Integer note;
 	private Date dateRecord;
-	private int activiteRecordActiviteId;
-	private int sportifsSportifsId;
+	private int activiteRecordActiviteId1;
+	private int sportifsSportifsId1;
 
 	public Commentaire() {
 	}
 
-	public Commentaire(int commentaireId, int activiteRecordActiviteId, int sportifsSportifsId) {
+	public Commentaire(int commentaireId, int activiteRecordActiviteId1, int sportifsSportifsId1) {
 		this.commentaireId = commentaireId;
-		this.activiteRecordActiviteId = activiteRecordActiviteId;
-		this.sportifsSportifsId = sportifsSportifsId;
+		this.activiteRecordActiviteId1 = activiteRecordActiviteId1;
+		this.sportifsSportifsId1 = sportifsSportifsId1;
 	}
 
-	public Commentaire(int commentaireId, String contenue, Integer note, Date dateRecord, int activiteRecordActiviteId,
-			int sportifsSportifsId) {
+	public Commentaire(int commentaireId, String contenue, Integer note, Date dateRecord, int activiteRecordActiviteId1,
+			int sportifsSportifsId1) {
 		this.commentaireId = commentaireId;
 		this.contenue = contenue;
 		this.note = note;
 		this.dateRecord = dateRecord;
-		this.activiteRecordActiviteId = activiteRecordActiviteId;
-		this.sportifsSportifsId = sportifsSportifsId;
+		this.activiteRecordActiviteId1 = activiteRecordActiviteId1;
+		this.sportifsSportifsId1 = sportifsSportifsId1;
 	}
 
 	@Id
@@ -81,22 +81,22 @@ public class Commentaire implements java.io.Serializable {
 		this.dateRecord = dateRecord;
 	}
 
-	@Column(name = "activite_record_Activite_id", nullable = false)
-	public int getActiviteRecordActiviteId() {
-		return this.activiteRecordActiviteId;
+	@Column(name = "activite_record_Activite_id1", nullable = false)
+	public int getActiviteRecordActiviteId1() {
+		return this.activiteRecordActiviteId1;
 	}
 
-	public void setActiviteRecordActiviteId(int activiteRecordActiviteId) {
-		this.activiteRecordActiviteId = activiteRecordActiviteId;
+	public void setActiviteRecordActiviteId1(int activiteRecordActiviteId1) {
+		this.activiteRecordActiviteId1 = activiteRecordActiviteId1;
 	}
 
-	@Column(name = "sportifs_sportifs_id", nullable = false)
-	public int getSportifsSportifsId() {
-		return this.sportifsSportifsId;
+	@Column(name = "sportifs_sportifs_id1", nullable = false)
+	public int getSportifsSportifsId1() {
+		return this.sportifsSportifsId1;
 	}
 
-	public void setSportifsSportifsId(int sportifsSportifsId) {
-		this.sportifsSportifsId = sportifsSportifsId;
+	public void setSportifsSportifsId1(int sportifsSportifsId1) {
+		this.sportifsSportifsId1 = sportifsSportifsId1;
 	}
 
 }
