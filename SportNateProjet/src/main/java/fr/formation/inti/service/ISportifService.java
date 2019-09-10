@@ -7,6 +7,5 @@ import fr.formation.inti.entities.Sportifs;
 
 public interface ISportifService {
 	
-	public Sportifs getbyLogin();
 
 }
