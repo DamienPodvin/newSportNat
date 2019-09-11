@@ -1,2 +1,14 @@
 fr\formation\inti\SportNateProjetApplication.class
+fr\formation\inti\entities\Commentaire.class
+fr\formation\inti\controller\ActiviteRecordController.class
+fr\formation\inti\entities\ActiviteRecordHasSportifsId.class
+fr\formation\inti\service\ActivityRecordService.class
+fr\formation\inti\entities\ActiviteRecordHasSportifs.class
+fr\formation\inti\dao\SportifsRepository.class
 fr\formation\inti\controller\LoginController.class
+fr\formation\inti\entities\Sportifs.class
+fr\formation\inti\service\impl\ActivityRecordServiceImpl.class
+fr\formation\inti\entities\ActiviteRecord.class
+fr\formation\inti\dao\ICommentaireDao.class
+fr\formation\inti\service\SportifService.class
+fr\formation\inti\dao\ActiviteDao.class

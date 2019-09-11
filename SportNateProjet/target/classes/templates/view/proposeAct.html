@@ -38,6 +38,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/moncompte">Mon Compte</a>
           </li>
+          <li>
+           <a class="nav-link js-scroll-trigger"  value="Déconnexion">Déconnexion</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -46,6 +49,46 @@
 
 	 <header class="masthead">
 	 <section class="contenu">
+	 	
+	 	
+	 	 <div class="panel-heading">Proposer une activité</div>
+                        <div class="panel-body">
+                            <form action="/activite/add" th:action="@{/employee/add}" th:object="${employee}" method="post">
+                                <div class="form-group">
+                                    <label for="inputDescription">Description de l'activité</label>
+                                    <input type="text" class="form-control" id="inputDescription" placeholder="Description" th:field="*{description}" name="description" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputFirstName">Lieu</label>
+                                    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" th:field="*{firstName}" name="firstName" />
+                                    <span  class="help-block" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputMobileNumber">Durée de l'activité</label>
+                                    <input type="text" class="form-control" id="inputTitle" placeholder="Title" th:field="*{title}" name="title" />
+                                    <span  class="help-block" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputStartDate">Nombre de personne maximum</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="StartDate" th:field="*{startDate}" name="startDate" />
+                                    <span  class="help-block" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Start date Error</span>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="inputStartDate">Nombre de km</label>
+                                    <input type="date" class="form-control" id="inputAddress" placeholder="StartDate" th:field="*{startDate}" name="startDate" />
+                                    <span  class="help-block" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Start date Error</span>
+                                </div>
+                                <div class="text-right">
+                                    <a href="/employee" th:href="@{/employee}" class="btn btn-default">Cancel</a>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+                        </div>
+	 	
+	 	
+	 	
+	 	
+	<!--  	===============================================================  -->
 	 	<div>
 	 	<label >Lieu</label>
             <select >
@@ -81,6 +124,10 @@
        		<label for="zonetext">Description :</label><br />
        		<textarea name="zone" id="zonetext" rows="5" cols="100"> Exemple de commentaire</textarea>
    		</p>
+   		
+   		<div class="form-group">
+                            <input type="submit" class="btnSubmit" value="S'enregistrer" />
+                        </div>
 		
             </section>
             

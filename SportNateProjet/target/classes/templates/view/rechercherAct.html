@@ -38,6 +38,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/moncompte">Mon Compte</a>
           </li>
+           <a class="nav-link js-scroll-trigger"  value="Déconnexion">Déconnexion</a>
+          <li>
+          </li>
         </ul>
       </div>
     </div>
@@ -46,12 +49,38 @@
 	
 
 	 <header class="masthead">
-	 
-	<label class="contenu">Lieu</label>
-            <select >
-                <option>Credit card</option>
-                <option>Another payment method</option>
-                <option>Another payment method</option>
-            </select>
+ <section class="contenu">
+	<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Description</th>
+      <th scope="col">Lieu</th>
+      <th scope="col">Temps</th>
+      <th scope="col">Nombre de personne</th>
+      <th scope="col">Nombre de km</th>
+      <th scope="col">Commentaires</th>
+      <th scope="col">S'inscrire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="activite : ${listActivite}">
+      <th th:utext="${activite.activiteId}"></th>
+      <td th:utext="${activite.description}"></td>
+      <td th:utext="${activite.lieu}"> </td>
+      <td th:utext="${activite.timeofActivity}"> </td>
+      <td th:utext="${activite.nbrePers}"> </td>
+      <td th:utext="${activite.nbreKm}"> </td>
+      <td><a href="commentaire.html" class="btn btn-default btn-lg active" role="button" title="Commentaire">Ajouter un commentaire</a></td>
+   	<td><a href="addActivite.html" class="btn btn-default btn-lg active" role="button" title="S'inscrire">S'inscrire</a></td>
+    </tr>
+   
+  </tbody>
+</table>
+	
 
-</header>
+	
+	
+	</section>
+	</header>
+	</html>
