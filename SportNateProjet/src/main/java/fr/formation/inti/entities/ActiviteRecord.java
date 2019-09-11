@@ -22,24 +22,25 @@ public class ActiviteRecord implements java.io.Serializable {
 	private Integer nbrePers;
 	private Integer nbreKm;
 	private String description;
-	private int commentaireCommentaireId;
+
 
 	public ActiviteRecord() {
 	}
 
-	public ActiviteRecord(int commentaireCommentaireId) {
-		this.commentaireCommentaireId = commentaireCommentaireId;
+	public ActiviteRecord(int activiteId) {
+		this.activiteId = activiteId;
+
 	}
 
-	public ActiviteRecord(String nameActivity, String lieu, String timeofActivity, Integer nbrePers, Integer nbreKm,
-			String description, int commentaireCommentaireId) {
+	public ActiviteRecord(int activiteId, String nameActivity, String lieu, String timeofActivity, Integer nbrePers,
+			Integer nbreKm, String description) {
+		this.activiteId = activiteId;
 		this.nameActivity = nameActivity;
 		this.lieu = lieu;
 		this.timeofActivity = timeofActivity;
 		this.nbrePers = nbrePers;
 		this.nbreKm = nbreKm;
 		this.description = description;
-		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
 	@Id
@@ -54,7 +55,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.activiteId = activiteId;
 	}
 
-	@Column(name = "NameActivity", length = 50)
+	@Column(name = "nameactivity", length = 50)
 	public String getNameActivity() {
 		return this.nameActivity;
 	}
@@ -72,7 +73,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.lieu = lieu;
 	}
 
-	@Column(name = "TimeofActivity", length = 50)
+	@Column(name = "timeofactivity", length = 50)
 	public String getTimeofActivity() {
 		return this.timeofActivity;
 	}
@@ -81,7 +82,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.timeofActivity = timeofActivity;
 	}
 
-	@Column(name = "NbrePers")
+	@Column(name = "nbrepers")
 	public Integer getNbrePers() {
 		return this.nbrePers;
 	}
@@ -90,7 +91,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.nbrePers = nbrePers;
 	}
 
-	@Column(name = "NbreKm")
+	@Column(name = "nbrekm")
 	public Integer getNbreKm() {
 		return this.nbreKm;
 	}
@@ -108,13 +109,5 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@Column(name = "commentaire_commentaire_id", nullable = false)
-	public int getCommentaireCommentaireId() {
-		return this.commentaireCommentaireId;
-	}
-
-	public void setCommentaireCommentaireId(int commentaireCommentaireId) {
-		this.commentaireCommentaireId = commentaireCommentaireId;
-	}
 
 }
