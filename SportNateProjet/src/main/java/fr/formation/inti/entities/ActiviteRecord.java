@@ -55,7 +55,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.activiteId = activiteId;
 	}
 
-	@Column(name = "NameActivity", length = 50)
+	@Column(name = "nameactivity", length = 50)
 	public String getNameActivity() {
 		return this.nameActivity;
 	}
@@ -73,7 +73,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.lieu = lieu;
 	}
 
-	@Column(name = "TimeofActivity", length = 50)
+	@Column(name = "timeofactivity", length = 50)
 	public String getTimeofActivity() {
 		return this.timeofActivity;
 	}
@@ -82,7 +82,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.timeofActivity = timeofActivity;
 	}
 
-	@Column(name = "NbrePers")
+	@Column(name = "nbrepers")
 	public Integer getNbrePers() {
 		return this.nbrePers;
 	}
@@ -91,7 +91,7 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.nbrePers = nbrePers;
 	}
 
-	@Column(name = "NbreKm")
+	@Column(name = "nbrekm")
 	public Integer getNbreKm() {
 		return this.nbreKm;
 	}
