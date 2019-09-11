@@ -22,18 +22,18 @@ public class ActiviteRecord implements java.io.Serializable {
 	private Integer nbrePers;
 	private Integer nbreKm;
 	private String description;
-	private int commentaireCommentaireId;
+
 
 	public ActiviteRecord() {
 	}
 
-	public ActiviteRecord(int activiteId, int commentaireCommentaireId) {
+	public ActiviteRecord(int activiteId) {
 		this.activiteId = activiteId;
-		this.commentaireCommentaireId = commentaireCommentaireId;
+
 	}
 
 	public ActiviteRecord(int activiteId, String nameActivity, String lieu, String timeofActivity, Integer nbrePers,
-			Integer nbreKm, int commentaireCommentaireId, String description) {
+			Integer nbreKm, String description) {
 		this.activiteId = activiteId;
 		this.nameActivity = nameActivity;
 		this.lieu = lieu;
@@ -41,7 +41,6 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.nbrePers = nbrePers;
 		this.nbreKm = nbreKm;
 		this.description = description;
-		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
 	@Id
@@ -110,13 +109,5 @@ public class ActiviteRecord implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@Column(name = "commentaire_commentaire_id", nullable = false)
-	public int getCommentaireCommentaireId() {
-		return this.commentaireCommentaireId;
-	}
-
-	public void setCommentaireCommentaireId(int commentaireCommentaireId) {
-		this.commentaireCommentaireId = commentaireCommentaireId;
-	}
 
 }

@@ -38,10 +38,5 @@ public class IndexController {
         return "view/login/index";
     }
 	
-	@GetMapping("/inscription")
-    public String inscription(Model model) {
-		return "view/inscription";
-		
-	}
 	
 }
