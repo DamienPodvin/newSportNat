@@ -20,21 +20,22 @@ public class Sportifs implements java.io.Serializable {
 	private String prenom;
 	private Integer age;
 	private String titre;
-	private long appUserUserId;
+	private String tel;
+//	private long appUserUserId;
 
 	public Sportifs() {
 	}
 
-	public Sportifs(long appUserUserId) {
-		this.appUserUserId = appUserUserId;
-	}
+//	public Sportifs(long appUserUserId) {
+//		this.appUserUserId = appUserUserId;
+//	}
 
 	public Sportifs(String nom, String prenom, Integer age, String titre, long appUserUserId) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;
 		this.titre = titre;
-		this.appUserUserId = appUserUserId;
+//		this.appUserUserId = appUserUserId;
 	}
 
 	@Id
@@ -85,13 +86,21 @@ public class Sportifs implements java.io.Serializable {
 		this.titre = titre;
 	}
 
-	@Column(name = "app_user_USER_ID", nullable = false)
-	public long getAppUserUserId() {
-		return this.appUserUserId;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setAppUserUserId(long appUserUserId) {
-		this.appUserUserId = appUserUserId;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
+
+//	@Column(name = "app_user_USER_ID", nullable = false)
+//	public long getAppUserUserId() {
+//		return this.appUserUserId;
+//	}
+//
+//	public void setAppUserUserId(long appUserUserId) {
+//		this.appUserUserId = appUserUserId;
+//	}
 
 }
