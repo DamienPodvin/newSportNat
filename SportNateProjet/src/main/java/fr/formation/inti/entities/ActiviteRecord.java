@@ -27,12 +27,14 @@ public class ActiviteRecord implements java.io.Serializable {
 	public ActiviteRecord() {
 	}
 
-	public ActiviteRecord(int commentaireCommentaireId) {
+	public ActiviteRecord(int activiteId, int commentaireCommentaireId) {
+		this.activiteId = activiteId;
 		this.commentaireCommentaireId = commentaireCommentaireId;
 	}
 
-	public ActiviteRecord(String nameActivity, String lieu, String timeofActivity, Integer nbrePers, Integer nbreKm,
-			String description, int commentaireCommentaireId) {
+	public ActiviteRecord(int activiteId, String nameActivity, String lieu, String timeofActivity, Integer nbrePers,
+			Integer nbreKm, int commentaireCommentaireId, String description) {
+		this.activiteId = activiteId;
 		this.nameActivity = nameActivity;
 		this.lieu = lieu;
 		this.timeofActivity = timeofActivity;
