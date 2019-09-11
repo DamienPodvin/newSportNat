@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -27,7 +27,7 @@
   <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
     
-    <form action="/" method="post">
+    <form action="/" method="post" th:object>
     
     		<p class="form-group">
 			<label for="text">Nom</label>
